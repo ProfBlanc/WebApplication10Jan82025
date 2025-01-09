@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@{
+    int age = 100;
+    int oldAge = age * 2;
+}
+
+<h1>@ViewData["author"]</h1>
+<h2>@age</h2>
+<h3>@ViewData["result"]</h3>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<!--
+    Add a link to each country name. 
+    Add (IsoCode)
+    -->
+<h3>North American Countries</h3>
+<ul>
+    @foreach(var country in Model.NorthAmerica)
+    {
+        
+    <li><a href="/Index?CountryId=@country.CountryId">@country.Name (@country.IsoCode)</a></li>
+    
+    }
+</ul>
