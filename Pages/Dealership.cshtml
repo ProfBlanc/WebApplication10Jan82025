@@ -1,0 +1,21 @@
+﻿@page
+@model DealershipModel
+@{
+    ViewData["Title"] = "Dealership page";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Viewing @ViewData["Filter"] Cars</h3>
+<ul>
+    @foreach(var car in Model.Cars)
+    {
+        
+    <li>
+        <a href="/Dealership?Make=@car.Make"> 
+        @car.Color @car.Year @car.Make @car.Model 
+        </a>
+        </li>
+    
+    }
+</ul>
