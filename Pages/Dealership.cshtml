@@ -7,6 +7,51 @@
 <h1>@ViewData["Title"]</h1>
 
 <h3>Viewing @ViewData["Filter"] Cars</h3>
+
+<form method="get">
+
+    <table>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+        <td>
+            <td>
+            <select name="Make">
+                <option value="">Select Make</option>
+                    @foreach (var make in Model.Makes)
+                {
+                    <option value="@make">@make.ToUpper()</option>
+                }
+            </select>
+        </td>
+        <td>
+            <select name="Model">
+                <option value="">Select Model</option>
+                    @foreach (var md in Model.Models)
+                {
+                    <option value="@md">@md.ToUpper()</option>
+                }
+            </select>
+        </td>
+        <td>
+            <select name="City">
+                <option value="">Select City</option>
+                @foreach(var city in Model.Cities)
+                {
+                    <option value="@city">@city.ToUpper()</option>
+                }
+            </select>
+        </td>
+        <td>
+            <input type="submit" class="btn btn-md btn-info" value="Submit"/>
+        </td>
+    </table>
+
+</form>
+
 <ul>
     @foreach(var car in Model.Cars)
     {
